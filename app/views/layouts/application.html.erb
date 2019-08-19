@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hiroshi Morita blog</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <%# <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script> %>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript">    
+      WebFontConfig = {
+        google: { families: [ 'Unica+One::latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+    
+  </head>
+  <body class="anime5">
+<header class="header">
+  <nav>
+    <div class="nav-wrapper #ffa726 orange lighten-1">
+    <a href="/" class="brand-logo center"><i class="fas fa-hospital-symbol faa-bounce animated fa-lg"></i>M-blog</a>
+  </nav>
+</header>
+    <div class="sub-header anime3">
+      <% if user_signed_in? %>
+      <a href="/users/<%= current_user.id %>"><i class="fas fa-user"></i>&thinsp;<%= current_user.name %></a>
+      <br>
+        <a class="post" href="/articles/new">post</a>
+      <% else %>
+          <%= link_to "log-in", new_user_session_path, class: 'post' %>
+      <% end %>
+      <% if user_signed_in? %>
+            <%= link_to "log-out", destroy_user_session_path, method: :delete %>
+      <% else %>
+      <% end %>
+    </div>
+
+
+    <%= yield %>
+
+</div>
+    <footer>
+      <p>
+        <i class="fas fa-hospital-symbol"></i>M-blog
+      </p>
+    </footer>
+  </body>
+</html>

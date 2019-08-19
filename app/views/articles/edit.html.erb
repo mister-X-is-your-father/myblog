@@ -1,0 +1,6 @@
+  <div class="contents row">
+  <%= form_for @article, url: article_path do |f| %>
+  <%= f.text_area :text, placeholder: "text" %>
+  <%= f.submit "編集" %>
+  <% end %>
+  </div>

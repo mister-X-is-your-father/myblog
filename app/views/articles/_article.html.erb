@@ -1,0 +1,21 @@
+         <div class="content_post anime2">
+    <% if user_signed_in? && current_user.id == article.user_id %>
+        <div class="more">
+          <i class="fas fa-pen-square fa-2x faa-flash animated-hover faa-fast"></i>
+          <ul class="more_list">
+            <li>
+              <%= link_to '編集', "/articles/#{article.id}/edit", method: :get %>
+            </li>
+            <li>
+    <%= link_to '削除', "/articles/#{article.id}", method: :delete %>
+            </li>
+          </ul>
+        </div>
+    <% end %>
+    <%= simple_format(article.text) %>
+    <div class="anime4">
+     <a href="/users/<%= article.user.name %>">
+      <span><i class="fas fa-user"></i>&thinsp;</span><%= article.user.name %>
+     </a>
+     </div>
+      </div>
