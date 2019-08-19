@@ -358,7 +358,6 @@ div.contents.row {
   }
 }
 footer {
-  @include boxBase;
   color: $gray;
   p {
     text-align: center;
@@ -536,8 +535,7 @@ footer {
 
 .pagination {
   padding:0 270px;
+  margin-right: 100px;
+  width: 100vw;
   background-color: $accent;
-  position: absolute;
-  left: 0;
-  bottom: -1480px;
 }
